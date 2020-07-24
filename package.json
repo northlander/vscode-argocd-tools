@@ -16,7 +16,13 @@
 		"gitops"
 	],
 	"activationEvents": [
-		"onView:argocd"
+		"onView:extension.vsArgocdTools.contexts",
+		"onView:extension.vsArgocdTools.repos",
+		"onCommand:extension.vsArgocdTools.deleteContextEntry",
+		"onCommand:extension.vsArgocdTools.setCurrentContext",
+		"onCommand:extension.vsArgocdTools.addRepo",
+		"onCommand:extension.vsArgocdTools.refreshContexts",
+		"onCommand:extension.vsArgocdTools.refreshRepos"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -32,32 +38,91 @@
 		"views":{
 			"argocdView":[
 				{
-					"id": "argocdContexts",
+					"id": "extension.vsArgocdTools.contexts",
 					"name": "Argocd Contexts",
 					"icon": "resources/dark/dependency.svg"
 				},
 				{
 					"id": "argocdClusters",
-					"name": "Kubernetes Clusters",
+					"name": "Clusters",
 					"icon": "resources/dark/dependency.svg"
 				},
 				{
-					"id": "argcdRepos",
+					"id": "extension.vsArgocdTools.repos",
 					"name": "Repositories",
 					"icon": "resources/dark/dependency.svg"
 				},
 				{
-					"id": "argocdApplications",
-					"name": "Argocd Applications",
+					"id": "extension.vsArgocdTools.apps",
+					"name": "Applications",
 					"icon": "resources/dark/dependency.svg"
 				},
 				{
-					"id": "argocdProjects",
-					"name": "Argocd Projects",
+					"id": "extension.vsArgocdTools.projects",
+					"name": "Projects",
 					"icon": "resources/dark/dependency.svg"
 				}
 			]
-		}
+		},
+		"menus": {
+			"view/item/context": [
+				{
+					"command": "extension.vsArgocdTools.deleteContextEntry",
+					"when": "view == extension.vsArgocdTools.contexts && viewItem == vsArgocdTools.context"
+				},
+				{
+					"command": "extension.vsArgocdTools.setCurrentContext",
+					"when": "view == extension.vsArgocdTools.contexts && viewItem == vsArgocdTools.context"
+				}
+			],
+			"view/title": [
+				{
+					"command": "extension.vsArgocdTools.refreshContexts",
+					"when": "view == extension.vsArgocdTools.contexts",
+					"group": "navigation"
+				},
+				{
+					"command": "extension.vsArgocdTools.refreshRepos",
+					"when": "view == extension.vsArgocdTools.repos",
+					"group": "navigation"
+				},
+				{
+					"command": "extension.vsArgocdTools.addRepo",
+					"when": "view == extension.vsArgocdTools.repos",
+					"group": "navigation"
+				}
+			]
+		},
+		"commands":[
+			{
+				"command": "extension.vsArgocdTools.deleteContextEntry",
+				"title": "Delete",
+				"category": "Argocd Contexts"
+			},
+			{
+				"command": "extension.vsArgocdTools.setCurrentContext",
+				"title": "Set current",
+				"category": "Argocd Contexts"
+			},
+			{
+				"command": "extension.vsArgocdTools.refreshContexts",
+				"title": "Refresh",
+				"category": "Argocd Contexts",
+				"icon": "$(sync)"
+			},
+			{
+				"command": "extension.vsArgocdTools.refreshRepos",
+				"title": "Refresh",
+				"category": "Argocd Repos",
+				"icon": "$(sync)"
+			},
+			{
+				"command": "extension.vsArgocdTools.addRepo",
+				"title": "Add",
+				"category": "Argocd Repos",
+				"icon": "$(gist-new)"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -67,6 +132,7 @@
 		"pretest": "npm run compile && npm run lint",
 		"test": "node ./out/test/runTest.js"
 	},
+	
 	"devDependencies": {
 		"@types/vscode": "^1.47.0",
 		"@types/glob": "^7.1.1",

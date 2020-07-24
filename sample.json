@@ -1,0 +1,3979 @@
+[
+  {
+    "metadata": {
+      "name": "hello-arch",
+      "namespace": "argocd",
+      "selfLink": "/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/hello-arch",
+      "uid": "86f294ef-704b-4b23-a6e6-3f71a2bfc2fb",
+      "resourceVersion": "3791383",
+      "generation": 1829,
+      "creationTimestamp": "2020-07-21T00:18:43Z",
+      "labels": {
+        "app.kubernetes.io/instance": "rocket-apps"
+      },
+      "annotations": {
+        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"argoproj.io/v1alpha1\",\"kind\":\"Application\",\"metadata\":{\"annotations\":{},\"finalizers\":[\"resources-finalizer.argocd.argoproj.io\"],\"labels\":{\"app.kubernetes.io/instance\":\"rocket-apps\"},\"name\":\"hello-arch\",\"namespace\":\"argocd\"},\"spec\":{\"destination\":{\"namespace\":\"applications\",\"server\":\"https://kubernetes.default.svc\"},\"project\":\"default\",\"source\":{\"path\":\"apps/hello-arch\",\"repoURL\":\"https://github.com/northlander/rocket-config.git\",\"targetRevision\":\"HEAD\"}}}\n"
+      },
+      "finalizers": [
+        "resources-finalizer.argocd.argoproj.io"
+      ],
+      "managedFields": [
+        {
+          "manager": "argocd-server",
+          "operation": "Update",
+          "apiVersion": "argoproj.io/v1alpha1",
+          "time": "2020-07-21T00:19:00Z",
+          "fieldsType": "FieldsV1",
+          "fieldsV1": {
+            "f:status": {
+              "f:summary": {}
+            }
+          }
+        },
+        {
+          "manager": "argocd-application-controller",
+          "operation": "Update",
+          "apiVersion": "argoproj.io/v1alpha1",
+          "time": "2020-07-24T19:20:34Z",
+          "fieldsType": "FieldsV1",
+          "fieldsV1": {
+            "f:metadata": {
+              "f:annotations": {
+                ".": {},
+                "f:kubectl.kubernetes.io/last-applied-configuration": {}
+              },
+              "f:finalizers": {
+                ".": {},
+                "v:\"resources-finalizer.argocd.argoproj.io\"": {}
+              },
+              "f:labels": {
+                ".": {},
+                "f:app.kubernetes.io/instance": {}
+              }
+            },
+            "f:spec": {
+              ".": {},
+              "f:destination": {
+                ".": {},
+                "f:namespace": {},
+                "f:server": {}
+              },
+              "f:project": {},
+              "f:source": {
+                ".": {},
+                "f:path": {},
+                "f:repoURL": {},
+                "f:targetRevision": {}
+              }
+            },
+            "f:status": {
+              ".": {},
+              "f:health": {
+                ".": {},
+                "f:status": {}
+              },
+              "f:history": {},
+              "f:observedAt": {},
+              "f:operationState": {
+                ".": {},
+                "f:finishedAt": {},
+                "f:message": {},
+                "f:operation": {
+                  ".": {},
+                  "f:initiatedBy": {
+                    ".": {},
+                    "f:username": {}
+                  },
+                  "f:sync": {
+                    ".": {},
+                    "f:revision": {},
+                    "f:syncStrategy": {
+                      ".": {},
+                      "f:hook": {}
+                    }
+                  }
+                },
+                "f:phase": {},
+                "f:startedAt": {},
+                "f:syncResult": {
+                  ".": {},
+                  "f:resources": {},
+                  "f:revision": {},
+                  "f:source": {
+                    ".": {},
+                    "f:path": {},
+                    "f:repoURL": {},
+                    "f:targetRevision": {}
+                  }
+                }
+              },
+              "f:reconciledAt": {},
+              "f:resources": {},
+              "f:sourceType": {},
+              "f:summary": {
+                "f:externalURLs": {},
+                "f:images": {}
+              },
+              "f:sync": {
+                ".": {},
+                "f:comparedTo": {
+                  ".": {},
+                  "f:destination": {
+                    ".": {},
+                    "f:namespace": {},
+                    "f:server": {}
+                  },
+                  "f:source": {
+                    ".": {},
+                    "f:path": {},
+                    "f:repoURL": {},
+                    "f:targetRevision": {}
+                  }
+                },
+                "f:revision": {},
+                "f:status": {}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "spec": {
+      "source": {
+        "repoURL": "https://github.com/northlander/rocket-config.git",
+        "path": "apps/hello-arch",
+        "targetRevision": "HEAD"
+      },
+      "destination": {
+        "server": "https://kubernetes.default.svc",
+        "namespace": "applications"
+      },
+      "project": "default"
+    },
+    "status": {
+      "resources": [
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "applications",
+          "name": "hello-arch",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "apps",
+          "version": "v1",
+          "kind": "Deployment",
+          "namespace": "applications",
+          "name": "hello-arch",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "extensions",
+          "version": "v1beta1",
+          "kind": "Ingress",
+          "namespace": "applications",
+          "name": "hello-arch",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        }
+      ],
+      "sync": {
+        "status": "Synced",
+        "comparedTo": {
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/hello-arch",
+            "targetRevision": "HEAD"
+          },
+          "destination": {
+            "server": "https://kubernetes.default.svc",
+            "namespace": "applications"
+          }
+        },
+        "revision": "3aa314986b470143730668ba6e6eb54975ca0f14"
+      },
+      "health": {
+        "status": "Healthy"
+      },
+      "history": [
+        {
+          "revision": "5a54630624669d96b868abf73fedc2f766540a32",
+          "deployedAt": "2020-07-21T00:19:05Z",
+          "id": 0,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/hello-arch",
+            "targetRevision": "HEAD"
+          }
+        }
+      ],
+      "reconciledAt": "2020-07-24T19:20:33Z",
+      "operationState": {
+        "operation": {
+          "sync": {
+            "revision": "5a54630624669d96b868abf73fedc2f766540a32",
+            "syncStrategy": {
+              "hook": {}
+            }
+          },
+          "initiatedBy": {
+            "username": "admin"
+          }
+        },
+        "phase": "Succeeded",
+        "message": "successfully synced (all tasks run)",
+        "syncResult": {
+          "resources": [
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "applications",
+              "name": "hello-arch",
+              "status": "Synced",
+              "message": "service/hello-arch created",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apps",
+              "version": "v1",
+              "kind": "Deployment",
+              "namespace": "applications",
+              "name": "hello-arch",
+              "status": "Synced",
+              "message": "deployment.apps/hello-arch created",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "extensions",
+              "version": "v1beta1",
+              "kind": "Ingress",
+              "namespace": "applications",
+              "name": "hello-arch",
+              "status": "Synced",
+              "message": "ingress.extensions/hello-arch created",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            }
+          ],
+          "revision": "5a54630624669d96b868abf73fedc2f766540a32",
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/hello-arch",
+            "targetRevision": "HEAD"
+          }
+        },
+        "startedAt": "2020-07-21T00:19:00Z",
+        "finishedAt": "2020-07-21T00:19:06Z"
+      },
+      "observedAt": "2020-07-24T19:20:33Z",
+      "sourceType": "Helm",
+      "summary": {
+        "externalURLs": [
+          "http://arch-test.rocket.nordlander.digital/"
+        ],
+        "images": [
+          "stefanscherer/whoami:latest"
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "name": "ingress",
+      "namespace": "argocd",
+      "selfLink": "/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/ingress",
+      "uid": "9c99b31e-80aa-4f36-a072-a2a51dd39bc9",
+      "resourceVersion": "3791382",
+      "generation": 1858,
+      "creationTimestamp": "2020-07-20T23:45:17Z",
+      "labels": {
+        "app.kubernetes.io/instance": "rocket-apps"
+      },
+      "annotations": {
+        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"argoproj.io/v1alpha1\",\"kind\":\"Application\",\"metadata\":{\"annotations\":{},\"labels\":{\"app.kubernetes.io/instance\":\"rocket-apps\"},\"name\":\"ingress\",\"namespace\":\"argocd\"},\"spec\":{\"destination\":{\"namespace\":\"ingress\",\"server\":\"https://kubernetes.default.svc\"},\"project\":\"default\",\"source\":{\"chart\":\"traefik\",\"helm\":{\"parameters\":[{\"name\":\"kubernetes.ingressendpoint.publishedservice\",\"value\":\"ingress/ingress-traefik\"}]},\"path\":\"\",\"repoURL\":\"https://containous.github.io/traefik-helm-chart\",\"targetRevision\":\"8.9.1\"}}}\n"
+      },
+      "managedFields": [
+        {
+          "manager": "argocd-server",
+          "operation": "Update",
+          "apiVersion": "argoproj.io/v1alpha1",
+          "time": "2020-07-20T23:47:01Z",
+          "fieldsType": "FieldsV1",
+          "fieldsV1": {
+            "f:status": {
+              "f:summary": {}
+            }
+          }
+        },
+        {
+          "manager": "argocd-application-controller",
+          "operation": "Update",
+          "apiVersion": "argoproj.io/v1alpha1",
+          "time": "2020-07-24T19:20:33Z",
+          "fieldsType": "FieldsV1",
+          "fieldsV1": {
+            "f:metadata": {
+              "f:annotations": {
+                ".": {},
+                "f:kubectl.kubernetes.io/last-applied-configuration": {}
+              },
+              "f:labels": {
+                ".": {},
+                "f:app.kubernetes.io/instance": {}
+              }
+            },
+            "f:spec": {
+              ".": {},
+              "f:destination": {
+                ".": {},
+                "f:namespace": {},
+                "f:server": {}
+              },
+              "f:project": {},
+              "f:source": {
+                ".": {},
+                "f:chart": {},
+                "f:helm": {
+                  ".": {},
+                  "f:parameters": {}
+                },
+                "f:path": {},
+                "f:repoURL": {},
+                "f:targetRevision": {}
+              }
+            },
+            "f:status": {
+              ".": {},
+              "f:health": {
+                ".": {},
+                "f:status": {}
+              },
+              "f:history": {},
+              "f:observedAt": {},
+              "f:operationState": {
+                ".": {},
+                "f:finishedAt": {},
+                "f:message": {},
+                "f:operation": {
+                  ".": {},
+                  "f:initiatedBy": {
+                    ".": {},
+                    "f:username": {}
+                  },
+                  "f:sync": {
+                    ".": {},
+                    "f:revision": {},
+                    "f:syncStrategy": {
+                      ".": {},
+                      "f:hook": {}
+                    }
+                  }
+                },
+                "f:phase": {},
+                "f:startedAt": {},
+                "f:syncResult": {
+                  ".": {},
+                  "f:resources": {},
+                  "f:revision": {},
+                  "f:source": {
+                    ".": {},
+                    "f:chart": {},
+                    "f:helm": {
+                      ".": {},
+                      "f:parameters": {}
+                    },
+                    "f:repoURL": {},
+                    "f:targetRevision": {}
+                  }
+                }
+              },
+              "f:reconciledAt": {},
+              "f:resources": {},
+              "f:sourceType": {},
+              "f:summary": {
+                "f:images": {}
+              },
+              "f:sync": {
+                ".": {},
+                "f:comparedTo": {
+                  ".": {},
+                  "f:destination": {
+                    ".": {},
+                    "f:namespace": {},
+                    "f:server": {}
+                  },
+                  "f:source": {
+                    ".": {},
+                    "f:chart": {},
+                    "f:helm": {
+                      ".": {},
+                      "f:parameters": {}
+                    },
+                    "f:repoURL": {},
+                    "f:targetRevision": {}
+                  }
+                },
+                "f:revision": {},
+                "f:status": {}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "spec": {
+      "source": {
+        "repoURL": "https://containous.github.io/traefik-helm-chart",
+        "targetRevision": "8.9.1",
+        "helm": {
+          "parameters": [
+            {
+              "name": "kubernetes.ingressendpoint.publishedservice",
+              "value": "ingress/ingress-traefik"
+            }
+          ]
+        },
+        "chart": "traefik"
+      },
+      "destination": {
+        "server": "https://kubernetes.default.svc",
+        "namespace": "ingress"
+      },
+      "project": "default"
+    },
+    "status": {
+      "resources": [
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "ingress",
+          "name": "ingress-traefik",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "ServiceAccount",
+          "namespace": "ingress",
+          "name": "ingress-traefik",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRole",
+          "name": "ingress-traefik",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRoleBinding",
+          "name": "ingress-traefik",
+          "status": "Synced"
+        },
+        {
+          "group": "apps",
+          "version": "v1",
+          "kind": "Deployment",
+          "namespace": "ingress",
+          "name": "ingress-traefik",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "traefik.containo.us",
+          "version": "v1alpha1",
+          "kind": "IngressRoute",
+          "namespace": "ingress",
+          "name": "ingress-traefik-dashboard",
+          "hook": true,
+          "requiresPruning": true
+        }
+      ],
+      "sync": {
+        "status": "Synced",
+        "comparedTo": {
+          "source": {
+            "repoURL": "https://containous.github.io/traefik-helm-chart",
+            "targetRevision": "8.9.1",
+            "helm": {
+              "parameters": [
+                {
+                  "name": "kubernetes.ingressendpoint.publishedservice",
+                  "value": "ingress/ingress-traefik"
+                }
+              ]
+            },
+            "chart": "traefik"
+          },
+          "destination": {
+            "server": "https://kubernetes.default.svc",
+            "namespace": "ingress"
+          }
+        },
+        "revision": "8.9.1"
+      },
+      "health": {
+        "status": "Healthy"
+      },
+      "history": [
+        {
+          "revision": "8.9.1",
+          "deployedAt": "2020-07-20T23:45:59Z",
+          "id": 0,
+          "source": {
+            "repoURL": "https://containous.github.io/traefik-helm-chart",
+            "targetRevision": "8.9.1",
+            "helm": {
+              "parameters": [
+                {
+                  "name": "kubernetes.ingressendpoint.publishedservice",
+                  "value": "ingress/ingress-traefik"
+                }
+              ]
+            },
+            "chart": "traefik"
+          }
+        },
+        {
+          "revision": "8.9.1",
+          "deployedAt": "2020-07-20T23:47:12Z",
+          "id": 1,
+          "source": {
+            "repoURL": "https://containous.github.io/traefik-helm-chart",
+            "targetRevision": "8.9.1",
+            "helm": {
+              "parameters": [
+                {
+                  "name": "kubernetes.ingressendpoint.publishedservice",
+                  "value": "ingress/ingress-traefik"
+                }
+              ]
+            },
+            "chart": "traefik"
+          }
+        }
+      ],
+      "reconciledAt": "2020-07-24T19:20:33Z",
+      "operationState": {
+        "operation": {
+          "sync": {
+            "revision": "8.9.1",
+            "syncStrategy": {
+              "hook": {}
+            }
+          },
+          "initiatedBy": {
+            "username": "admin"
+          }
+        },
+        "phase": "Succeeded",
+        "message": "successfully synced (no more tasks)",
+        "syncResult": {
+          "resources": [
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ServiceAccount",
+              "namespace": "ingress",
+              "name": "ingress-traefik",
+              "status": "Synced",
+              "message": "serviceaccount/ingress-traefik unchanged",
+              "hookPhase": "Succeeded",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRole",
+              "namespace": "ingress",
+              "name": "ingress-traefik",
+              "status": "Synced",
+              "message": "clusterrole.rbac.authorization.k8s.io/ingress-traefik reconciled. clusterrole.rbac.authorization.k8s.io/ingress-traefik unchanged",
+              "hookPhase": "Succeeded",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRoleBinding",
+              "namespace": "ingress",
+              "name": "ingress-traefik",
+              "status": "Synced",
+              "message": "clusterrolebinding.rbac.authorization.k8s.io/ingress-traefik reconciled. clusterrolebinding.rbac.authorization.k8s.io/ingress-traefik unchanged",
+              "hookPhase": "Succeeded",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "ingress",
+              "name": "ingress-traefik",
+              "status": "Synced",
+              "message": "service/ingress-traefik unchanged",
+              "hookPhase": "Succeeded",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apps",
+              "version": "v1",
+              "kind": "Deployment",
+              "namespace": "ingress",
+              "name": "ingress-traefik",
+              "status": "Synced",
+              "message": "deployment.apps/ingress-traefik configured",
+              "hookPhase": "Succeeded",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "traefik.containo.us",
+              "version": "v1alpha1",
+              "kind": "IngressRoute",
+              "namespace": "ingress",
+              "name": "ingress-traefik-dashboard",
+              "message": "ingress-traefik-dashboard created",
+              "hookType": "PostSync",
+              "hookPhase": "Succeeded",
+              "syncPhase": "PostSync"
+            }
+          ],
+          "revision": "8.9.1",
+          "source": {
+            "repoURL": "https://containous.github.io/traefik-helm-chart",
+            "targetRevision": "8.9.1",
+            "helm": {
+              "parameters": [
+                {
+                  "name": "kubernetes.ingressendpoint.publishedservice",
+                  "value": "ingress/ingress-traefik"
+                }
+              ]
+            },
+            "chart": "traefik"
+          }
+        },
+        "startedAt": "2020-07-20T23:47:01Z",
+        "finishedAt": "2020-07-20T23:47:12Z"
+      },
+      "observedAt": "2020-07-24T19:20:33Z",
+      "sourceType": "Helm",
+      "summary": {
+        "images": [
+          "traefik:2.2.5"
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "name": "monitoring",
+      "namespace": "argocd",
+      "selfLink": "/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/monitoring",
+      "uid": "55e51fe6-e628-43cc-a2ac-9bcb8fd4c3eb",
+      "resourceVersion": "3791391",
+      "generation": 6362,
+      "creationTimestamp": "2020-07-21T11:13:32Z",
+      "labels": {
+        "app.kubernetes.io/instance": "rocket-apps"
+      },
+      "annotations": {
+        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"argoproj.io/v1alpha1\",\"kind\":\"Application\",\"metadata\":{\"annotations\":{},\"labels\":{\"app.kubernetes.io/instance\":\"rocket-apps\"},\"name\":\"monitoring\",\"namespace\":\"argocd\"},\"spec\":{\"destination\":{\"namespace\":\"monitoring\",\"server\":\"https://kubernetes.default.svc\"},\"project\":\"default\",\"source\":{\"path\":\"apps/monitoring/manifests\",\"repoURL\":\"https://github.com/northlander/rocket-config.git\",\"targetRevision\":\"HEAD\"}}}\n"
+      },
+      "managedFields": [
+        {
+          "manager": "argocd-server",
+          "operation": "Update",
+          "apiVersion": "argoproj.io/v1alpha1",
+          "time": "2020-07-24T15:44:58Z",
+          "fieldsType": "FieldsV1",
+          "fieldsV1": {
+            "f:status": {
+              "f:summary": {}
+            }
+          }
+        },
+        {
+          "manager": "argocd-application-controller",
+          "operation": "Update",
+          "apiVersion": "argoproj.io/v1alpha1",
+          "time": "2020-07-24T19:20:39Z",
+          "fieldsType": "FieldsV1",
+          "fieldsV1": {
+            "f:metadata": {
+              "f:annotations": {
+                ".": {},
+                "f:kubectl.kubernetes.io/last-applied-configuration": {}
+              },
+              "f:labels": {
+                ".": {},
+                "f:app.kubernetes.io/instance": {}
+              }
+            },
+            "f:spec": {
+              ".": {},
+              "f:destination": {
+                ".": {},
+                "f:namespace": {},
+                "f:server": {}
+              },
+              "f:project": {},
+              "f:source": {
+                ".": {},
+                "f:path": {},
+                "f:repoURL": {},
+                "f:targetRevision": {}
+              }
+            },
+            "f:status": {
+              ".": {},
+              "f:health": {
+                ".": {},
+                "f:status": {}
+              },
+              "f:history": {},
+              "f:observedAt": {},
+              "f:operationState": {
+                ".": {},
+                "f:finishedAt": {},
+                "f:message": {},
+                "f:operation": {
+                  ".": {},
+                  "f:initiatedBy": {
+                    ".": {},
+                    "f:username": {}
+                  },
+                  "f:sync": {
+                    ".": {},
+                    "f:revision": {},
+                    "f:syncStrategy": {
+                      ".": {},
+                      "f:hook": {}
+                    }
+                  }
+                },
+                "f:phase": {},
+                "f:startedAt": {},
+                "f:syncResult": {
+                  ".": {},
+                  "f:resources": {},
+                  "f:revision": {},
+                  "f:source": {
+                    ".": {},
+                    "f:path": {},
+                    "f:repoURL": {},
+                    "f:targetRevision": {}
+                  }
+                }
+              },
+              "f:reconciledAt": {},
+              "f:resources": {},
+              "f:sourceType": {},
+              "f:summary": {
+                "f:externalURLs": {},
+                "f:images": {}
+              },
+              "f:sync": {
+                ".": {},
+                "f:comparedTo": {
+                  ".": {},
+                  "f:destination": {
+                    ".": {},
+                    "f:namespace": {},
+                    "f:server": {}
+                  },
+                  "f:source": {
+                    ".": {},
+                    "f:path": {},
+                    "f:repoURL": {},
+                    "f:targetRevision": {}
+                  }
+                },
+                "f:revision": {},
+                "f:status": {}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "spec": {
+      "source": {
+        "repoURL": "https://github.com/northlander/rocket-config.git",
+        "path": "apps/monitoring/manifests",
+        "targetRevision": "HEAD"
+      },
+      "destination": {
+        "server": "https://kubernetes.default.svc",
+        "namespace": "monitoring"
+      },
+      "project": "default"
+    },
+    "status": {
+      "resources": [
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-coredns-dashboard",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-nodes",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-scheduler",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboards",
+          "status": "Synced"
+        },
+        {
+          "group": "apps",
+          "version": "v1",
+          "kind": "Deployment",
+          "namespace": "monitoring",
+          "name": "grafana",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "adapter-config",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRole",
+          "name": "prometheus-k8s",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "PrometheusRule",
+          "namespace": "monitoring",
+          "name": "prometheus-k8s-rules",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-k8s-resources-namespace",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-traefik-dashboard",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ServiceAccount",
+          "namespace": "monitoring",
+          "name": "grafana",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRole",
+          "name": "node-exporter",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ServiceAccount",
+          "namespace": "monitoring",
+          "name": "prometheus-adapter",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "traefik",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ServiceAccount",
+          "namespace": "monitoring",
+          "name": "arm-exporter",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-kubelet",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-node-cluster-rsrc-use",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "metallb",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRoleBinding",
+          "name": "resource-metrics:system:auth-delegator",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "kube-apiserver",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "coredns",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Secret",
+          "namespace": "monitoring",
+          "name": "grafana-config",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-cluster-total",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-k8s-resources-cluster",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-k8s-resources-pod",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-kubernetes-cluster-dashboard",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-pod-total",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "kube-state-metrics",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "node-exporter",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "Prometheus",
+          "namespace": "monitoring",
+          "name": "k8s",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRole",
+          "name": "arm-exporter",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-proxy",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-statefulset",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "PersistentVolumeClaim",
+          "namespace": "monitoring",
+          "name": "grafana-storage",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "Endpoints",
+          "namespace": "kube-system",
+          "name": "kube-scheduler-prometheus-discovery",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "RoleBinding",
+          "namespace": "kube-system",
+          "name": "prometheus-k8s",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "monitoring",
+          "name": "alertmanager-main",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-namespace-by-workload",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-prometheus-dashboard",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-prometheus-remote-write",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "Role",
+          "namespace": "monitoring",
+          "name": "prometheus-k8s-config",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-controller-manager",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-prometheus",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "metallb-system",
+          "name": "metallb-controller",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "RoleBinding",
+          "namespace": "kube-system",
+          "name": "resource-metrics-auth-reader",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "kube-system",
+          "name": "kube-scheduler-prometheus-discovery",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "RoleBinding",
+          "namespace": "monitoring",
+          "name": "prometheus-k8s-config",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "Role",
+          "namespace": "kube-system",
+          "name": "prometheus-k8s",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "kube-controller-manager",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "kubelet",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ServiceAccount",
+          "namespace": "monitoring",
+          "name": "alertmanager-main",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-namespace-by-pod",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRole",
+          "name": "kube-state-metrics",
+          "status": "Synced"
+        },
+        {
+          "group": "apps",
+          "version": "v1",
+          "kind": "Deployment",
+          "namespace": "monitoring",
+          "name": "kube-state-metrics",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "monitoring",
+          "name": "node-exporter",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "kube-system",
+          "name": "kube-controller-manager-prometheus-discovery",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "monitoring",
+          "name": "prometheus-k8s",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "Alertmanager",
+          "namespace": "monitoring",
+          "name": "main",
+          "status": "Synced"
+        },
+        {
+          "group": "extensions",
+          "version": "v1beta1",
+          "kind": "Ingress",
+          "namespace": "monitoring",
+          "name": "prometheus-k8s",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "monitoring",
+          "name": "kube-state-metrics",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "apiregistration.k8s.io",
+          "version": "v1",
+          "kind": "APIService",
+          "name": "v1beta1.metrics.k8s.io",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy",
+            "message": "Passed: all checks passed"
+          }
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "prometheus-operator",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "prometheus",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-k8s-resources-workloads-namespace",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-persistentvolumesusage",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "monitoring",
+          "name": "grafana",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRoleBinding",
+          "name": "node-exporter",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRole",
+          "name": "system:aggregated-metrics-reader",
+          "status": "Synced"
+        },
+        {
+          "group": "apps",
+          "version": "v1",
+          "kind": "Deployment",
+          "namespace": "monitoring",
+          "name": "prometheus-adapter",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "Role",
+          "namespace": "default",
+          "name": "prometheus-k8s",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "arm-exporter",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "grafana",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "monitoring",
+          "name": "prometheus-adapter",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "kube-scheduler",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-k8s-resources-node",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-workload-total",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ServiceAccount",
+          "namespace": "monitoring",
+          "name": "kube-state-metrics",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "kube-system",
+          "name": "kube-dns-prometheus-discovery",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "ServiceAccount",
+          "namespace": "monitoring",
+          "name": "prometheus-k8s",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Secret",
+          "namespace": "monitoring",
+          "name": "smb-credentials",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "monitoring",
+          "name": "arm-exporter",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "ServiceAccount",
+          "namespace": "monitoring",
+          "name": "node-exporter",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRole",
+          "name": "prometheus-adapter",
+          "status": "Synced"
+        },
+        {
+          "group": "monitoring.coreos.com",
+          "version": "v1",
+          "kind": "ServiceMonitor",
+          "namespace": "monitoring",
+          "name": "alertmanager",
+          "status": "Synced"
+        },
+        {
+          "group": "extensions",
+          "version": "v1beta1",
+          "kind": "Ingress",
+          "namespace": "monitoring",
+          "name": "alertmanager-main",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRoleBinding",
+          "name": "prometheus-k8s",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "RoleBinding",
+          "namespace": "monitoring",
+          "name": "prometheus-k8s",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "PersistentVolume",
+          "name": "pv-prometheus",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRoleBinding",
+          "name": "arm-exporter",
+          "status": "Synced"
+        },
+        {
+          "group": "apps",
+          "version": "v1",
+          "kind": "DaemonSet",
+          "namespace": "monitoring",
+          "name": "arm-exporter",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-apiserver",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-k8s-resources-workload",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRoleBinding",
+          "name": "kube-state-metrics",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Endpoints",
+          "namespace": "kube-system",
+          "name": "kube-controller-manager-prometheus-discovery",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "PersistentVolume",
+          "name": "pv-grafana",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Secret",
+          "namespace": "monitoring",
+          "name": "alertmanager-main",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Secret",
+          "namespace": "monitoring",
+          "name": "grafana-datasources",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ConfigMap",
+          "namespace": "monitoring",
+          "name": "grafana-dashboard-node-rsrc-use",
+          "status": "Synced"
+        },
+        {
+          "group": "extensions",
+          "version": "v1beta1",
+          "kind": "Ingress",
+          "namespace": "monitoring",
+          "name": "grafana",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "apps",
+          "version": "v1",
+          "kind": "DaemonSet",
+          "namespace": "monitoring",
+          "name": "node-exporter",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRoleBinding",
+          "name": "prometheus-adapter",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRole",
+          "name": "resource-metrics-server-resources",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "RoleBinding",
+          "namespace": "default",
+          "name": "prometheus-k8s",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "Role",
+          "namespace": "monitoring",
+          "name": "prometheus-k8s",
+          "status": "Synced"
+        }
+      ],
+      "sync": {
+        "status": "Synced",
+        "comparedTo": {
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests",
+            "targetRevision": "HEAD"
+          },
+          "destination": {
+            "server": "https://kubernetes.default.svc",
+            "namespace": "monitoring"
+          }
+        },
+        "revision": "3aa314986b470143730668ba6e6eb54975ca0f14"
+      },
+      "health": {
+        "status": "Healthy"
+      },
+      "history": [
+        {
+          "revision": "8cce053c97c2f44de1f502821753fd7804872eda",
+          "deployedAt": "2020-07-21T12:22:22Z",
+          "id": 0,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "revision": "0137fc4e4d6d73d5694da1badffe126b280a392e",
+          "deployedAt": "2020-07-21T13:03:30Z",
+          "id": 1,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "revision": "e058039a61119e31e18058faacce9fff5f377bb8",
+          "deployedAt": "2020-07-21T13:07:29Z",
+          "id": 2,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "revision": "e058039a61119e31e18058faacce9fff5f377bb8",
+          "deployedAt": "2020-07-21T13:28:51Z",
+          "id": 3,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "revision": "691f65a55bf7e46f734d320755ed45534535f47c",
+          "deployedAt": "2020-07-22T13:36:07Z",
+          "id": 4,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "revision": "3aa314986b470143730668ba6e6eb54975ca0f14",
+          "deployedAt": "2020-07-22T13:46:07Z",
+          "id": 5,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "revision": "3aa314986b470143730668ba6e6eb54975ca0f14",
+          "deployedAt": "2020-07-22T15:48:55Z",
+          "id": 6,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "revision": "3aa314986b470143730668ba6e6eb54975ca0f14",
+          "deployedAt": "2020-07-24T15:47:13Z",
+          "id": 7,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests",
+            "targetRevision": "HEAD"
+          }
+        }
+      ],
+      "reconciledAt": "2020-07-24T19:20:33Z",
+      "operationState": {
+        "operation": {
+          "sync": {
+            "revision": "3aa314986b470143730668ba6e6eb54975ca0f14",
+            "syncStrategy": {
+              "hook": {}
+            }
+          },
+          "initiatedBy": {
+            "username": "admin"
+          }
+        },
+        "phase": "Succeeded",
+        "message": "successfully synced (all tasks run)",
+        "syncResult": {
+          "resources": [
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Secret",
+              "namespace": "monitoring",
+              "name": "grafana-config",
+              "status": "Synced",
+              "message": "secret/grafana-config unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Secret",
+              "namespace": "monitoring",
+              "name": "grafana-datasources",
+              "status": "Synced",
+              "message": "secret/grafana-datasources unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Secret",
+              "namespace": "monitoring",
+              "name": "alertmanager-main",
+              "status": "Synced",
+              "message": "secret/alertmanager-main configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Secret",
+              "namespace": "monitoring",
+              "name": "smb-credentials",
+              "status": "Synced",
+              "message": "secret/smb-credentials configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboards",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboards unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "adapter-config",
+              "status": "Synced",
+              "message": "configmap/adapter-config unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-prometheus",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-prometheus unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-node-rsrc-use",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-node-rsrc-use unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-namespace-by-pod",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-namespace-by-pod unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-prometheus-remote-write",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-prometheus-remote-write unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-proxy",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-proxy unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-controller-manager",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-controller-manager unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-node-cluster-rsrc-use",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-node-cluster-rsrc-use unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-k8s-resources-namespace",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-k8s-resources-namespace unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-k8s-resources-workloads-namespace",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-k8s-resources-workloads-namespace unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-nodes",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-nodes unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-persistentvolumesusage",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-persistentvolumesusage unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-statefulset",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-statefulset unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-namespace-by-workload",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-namespace-by-workload unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-workload-total",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-workload-total unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-pod-total",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-pod-total unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-prometheus-dashboard",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-prometheus-dashboard unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-apiserver",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-apiserver unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-cluster-total",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-cluster-total unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-k8s-resources-node",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-k8s-resources-node unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-scheduler",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-scheduler unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-coredns-dashboard",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-coredns-dashboard unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-k8s-resources-pod",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-k8s-resources-pod unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-kubelet",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-kubelet unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-kubernetes-cluster-dashboard",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-kubernetes-cluster-dashboard unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-k8s-resources-cluster",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-k8s-resources-cluster unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-k8s-resources-workload",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-k8s-resources-workload unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ConfigMap",
+              "namespace": "monitoring",
+              "name": "grafana-dashboard-traefik-dashboard",
+              "status": "Synced",
+              "message": "configmap/grafana-dashboard-traefik-dashboard unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "PersistentVolume",
+              "namespace": "monitoring",
+              "name": "pv-prometheus",
+              "status": "Synced",
+              "message": "persistentvolume/pv-prometheus unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "PersistentVolume",
+              "namespace": "monitoring",
+              "name": "pv-grafana",
+              "status": "Synced",
+              "message": "persistentvolume/pv-grafana unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "PersistentVolumeClaim",
+              "namespace": "monitoring",
+              "name": "grafana-storage",
+              "status": "Synced",
+              "message": "persistentvolumeclaim/grafana-storage unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ServiceAccount",
+              "namespace": "monitoring",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "serviceaccount/prometheus-k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ServiceAccount",
+              "namespace": "monitoring",
+              "name": "kube-state-metrics",
+              "status": "Synced",
+              "message": "serviceaccount/kube-state-metrics unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ServiceAccount",
+              "namespace": "monitoring",
+              "name": "grafana",
+              "status": "Synced",
+              "message": "serviceaccount/grafana unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ServiceAccount",
+              "namespace": "monitoring",
+              "name": "arm-exporter",
+              "status": "Synced",
+              "message": "serviceaccount/arm-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ServiceAccount",
+              "namespace": "monitoring",
+              "name": "node-exporter",
+              "status": "Synced",
+              "message": "serviceaccount/node-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ServiceAccount",
+              "namespace": "monitoring",
+              "name": "alertmanager-main",
+              "status": "Synced",
+              "message": "serviceaccount/alertmanager-main unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ServiceAccount",
+              "namespace": "monitoring",
+              "name": "prometheus-adapter",
+              "status": "Synced",
+              "message": "serviceaccount/prometheus-adapter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRole",
+              "namespace": "monitoring",
+              "name": "system:aggregated-metrics-reader",
+              "status": "Synced",
+              "message": "clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader reconciled. clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRole",
+              "namespace": "monitoring",
+              "name": "prometheus-adapter",
+              "status": "Synced",
+              "message": "clusterrole.rbac.authorization.k8s.io/prometheus-adapter reconciled. clusterrole.rbac.authorization.k8s.io/prometheus-adapter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRole",
+              "namespace": "monitoring",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "clusterrole.rbac.authorization.k8s.io/prometheus-k8s reconciled. clusterrole.rbac.authorization.k8s.io/prometheus-k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRole",
+              "namespace": "monitoring",
+              "name": "kube-state-metrics",
+              "status": "Synced",
+              "message": "clusterrole.rbac.authorization.k8s.io/kube-state-metrics reconciled. clusterrole.rbac.authorization.k8s.io/kube-state-metrics unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRole",
+              "namespace": "monitoring",
+              "name": "resource-metrics-server-resources",
+              "status": "Synced",
+              "message": "clusterrole.rbac.authorization.k8s.io/resource-metrics-server-resources reconciled. clusterrole.rbac.authorization.k8s.io/resource-metrics-server-resources unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRole",
+              "namespace": "monitoring",
+              "name": "node-exporter",
+              "status": "Synced",
+              "message": "clusterrole.rbac.authorization.k8s.io/node-exporter reconciled. clusterrole.rbac.authorization.k8s.io/node-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRole",
+              "namespace": "monitoring",
+              "name": "arm-exporter",
+              "status": "Synced",
+              "message": "clusterrole.rbac.authorization.k8s.io/arm-exporter reconciled. clusterrole.rbac.authorization.k8s.io/arm-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRoleBinding",
+              "namespace": "monitoring",
+              "name": "arm-exporter",
+              "status": "Synced",
+              "message": "clusterrolebinding.rbac.authorization.k8s.io/arm-exporter reconciled. clusterrolebinding.rbac.authorization.k8s.io/arm-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRoleBinding",
+              "namespace": "monitoring",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "clusterrolebinding.rbac.authorization.k8s.io/prometheus-k8s reconciled. clusterrolebinding.rbac.authorization.k8s.io/prometheus-k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRoleBinding",
+              "namespace": "monitoring",
+              "name": "node-exporter",
+              "status": "Synced",
+              "message": "clusterrolebinding.rbac.authorization.k8s.io/node-exporter reconciled. clusterrolebinding.rbac.authorization.k8s.io/node-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRoleBinding",
+              "namespace": "monitoring",
+              "name": "prometheus-adapter",
+              "status": "Synced",
+              "message": "clusterrolebinding.rbac.authorization.k8s.io/prometheus-adapter reconciled. clusterrolebinding.rbac.authorization.k8s.io/prometheus-adapter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRoleBinding",
+              "namespace": "monitoring",
+              "name": "resource-metrics:system:auth-delegator",
+              "status": "Synced",
+              "message": "clusterrolebinding.rbac.authorization.k8s.io/resource-metrics:system:auth-delegator reconciled. clusterrolebinding.rbac.authorization.k8s.io/resource-metrics:system:auth-delegator unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRoleBinding",
+              "namespace": "monitoring",
+              "name": "kube-state-metrics",
+              "status": "Synced",
+              "message": "clusterrolebinding.rbac.authorization.k8s.io/kube-state-metrics reconciled. clusterrolebinding.rbac.authorization.k8s.io/kube-state-metrics unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "Role",
+              "namespace": "monitoring",
+              "name": "prometheus-k8s-config",
+              "status": "Synced",
+              "message": "role.rbac.authorization.k8s.io/prometheus-k8s-config reconciled. role.rbac.authorization.k8s.io/prometheus-k8s-config unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "Role",
+              "namespace": "kube-system",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "role.rbac.authorization.k8s.io/prometheus-k8s reconciled. role.rbac.authorization.k8s.io/prometheus-k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "Role",
+              "namespace": "monitoring",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "role.rbac.authorization.k8s.io/prometheus-k8s reconciled. role.rbac.authorization.k8s.io/prometheus-k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "Role",
+              "namespace": "default",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "role.rbac.authorization.k8s.io/prometheus-k8s reconciled. role.rbac.authorization.k8s.io/prometheus-k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "RoleBinding",
+              "namespace": "kube-system",
+              "name": "resource-metrics-auth-reader",
+              "status": "Synced",
+              "message": "rolebinding.rbac.authorization.k8s.io/resource-metrics-auth-reader reconciled. rolebinding.rbac.authorization.k8s.io/resource-metrics-auth-reader unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "RoleBinding",
+              "namespace": "default",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "rolebinding.rbac.authorization.k8s.io/prometheus-k8s reconciled. rolebinding.rbac.authorization.k8s.io/prometheus-k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "RoleBinding",
+              "namespace": "monitoring",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "rolebinding.rbac.authorization.k8s.io/prometheus-k8s reconciled. rolebinding.rbac.authorization.k8s.io/prometheus-k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "RoleBinding",
+              "namespace": "monitoring",
+              "name": "prometheus-k8s-config",
+              "status": "Synced",
+              "message": "rolebinding.rbac.authorization.k8s.io/prometheus-k8s-config reconciled. rolebinding.rbac.authorization.k8s.io/prometheus-k8s-config unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "RoleBinding",
+              "namespace": "kube-system",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "rolebinding.rbac.authorization.k8s.io/prometheus-k8s reconciled. rolebinding.rbac.authorization.k8s.io/prometheus-k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "monitoring",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "service/prometheus-k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "monitoring",
+              "name": "prometheus-adapter",
+              "status": "Synced",
+              "message": "service/prometheus-adapter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "monitoring",
+              "name": "alertmanager-main",
+              "status": "Synced",
+              "message": "service/alertmanager-main unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "kube-system",
+              "name": "kube-dns-prometheus-discovery",
+              "status": "Synced",
+              "message": "service/kube-dns-prometheus-discovery unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "monitoring",
+              "name": "kube-state-metrics",
+              "status": "Synced",
+              "message": "service/kube-state-metrics unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "monitoring",
+              "name": "grafana",
+              "status": "Synced",
+              "message": "service/grafana unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "monitoring",
+              "name": "node-exporter",
+              "status": "Synced",
+              "message": "service/node-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "metallb-system",
+              "name": "metallb-controller",
+              "status": "Synced",
+              "message": "service/metallb-controller unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "kube-system",
+              "name": "kube-scheduler-prometheus-discovery",
+              "status": "Synced",
+              "message": "service/kube-scheduler-prometheus-discovery unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "monitoring",
+              "name": "arm-exporter",
+              "status": "Synced",
+              "message": "service/arm-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "kube-system",
+              "name": "kube-controller-manager-prometheus-discovery",
+              "status": "Synced",
+              "message": "service/kube-controller-manager-prometheus-discovery unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apps",
+              "version": "v1",
+              "kind": "DaemonSet",
+              "namespace": "monitoring",
+              "name": "arm-exporter",
+              "status": "Synced",
+              "message": "daemonset.apps/arm-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apps",
+              "version": "v1",
+              "kind": "DaemonSet",
+              "namespace": "monitoring",
+              "name": "node-exporter",
+              "status": "Synced",
+              "message": "daemonset.apps/node-exporter configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apps",
+              "version": "v1",
+              "kind": "Deployment",
+              "namespace": "monitoring",
+              "name": "prometheus-adapter",
+              "status": "Synced",
+              "message": "deployment.apps/prometheus-adapter configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apps",
+              "version": "v1",
+              "kind": "Deployment",
+              "namespace": "monitoring",
+              "name": "kube-state-metrics",
+              "status": "Synced",
+              "message": "deployment.apps/kube-state-metrics unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apps",
+              "version": "v1",
+              "kind": "Deployment",
+              "namespace": "monitoring",
+              "name": "grafana",
+              "status": "Synced",
+              "message": "deployment.apps/grafana configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "extensions",
+              "version": "v1beta1",
+              "kind": "Ingress",
+              "namespace": "monitoring",
+              "name": "grafana",
+              "status": "Synced",
+              "message": "ingress.extensions/grafana configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "extensions",
+              "version": "v1beta1",
+              "kind": "Ingress",
+              "namespace": "monitoring",
+              "name": "prometheus-k8s",
+              "status": "Synced",
+              "message": "ingress.extensions/prometheus-k8s configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "extensions",
+              "version": "v1beta1",
+              "kind": "Ingress",
+              "namespace": "monitoring",
+              "name": "alertmanager-main",
+              "status": "Synced",
+              "message": "ingress.extensions/alertmanager-main configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiregistration.k8s.io",
+              "version": "v1",
+              "kind": "APIService",
+              "namespace": "monitoring",
+              "name": "v1beta1.metrics.k8s.io",
+              "status": "Synced",
+              "message": "apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "grafana",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/grafana unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "coredns",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/coredns unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "alertmanager",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/alertmanager unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "arm-exporter",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/arm-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "Prometheus",
+              "namespace": "monitoring",
+              "name": "k8s",
+              "status": "Synced",
+              "message": "prometheus.monitoring.coreos.com/k8s unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "kube-apiserver",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/kube-apiserver unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "kube-controller-manager",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/kube-controller-manager unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Endpoints",
+              "namespace": "kube-system",
+              "name": "kube-controller-manager-prometheus-discovery",
+              "status": "Synced",
+              "message": "endpoints/kube-controller-manager-prometheus-discovery configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "kube-scheduler",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/kube-scheduler unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Endpoints",
+              "namespace": "kube-system",
+              "name": "kube-scheduler-prometheus-discovery",
+              "status": "Synced",
+              "message": "endpoints/kube-scheduler-prometheus-discovery configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "kube-state-metrics",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/kube-state-metrics unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "kubelet",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/kubelet unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "Alertmanager",
+              "namespace": "monitoring",
+              "name": "main",
+              "status": "Synced",
+              "message": "alertmanager.monitoring.coreos.com/main unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "metallb",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/metallb unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "prometheus",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/prometheus unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "node-exporter",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/node-exporter unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "PrometheusRule",
+              "namespace": "monitoring",
+              "name": "prometheus-k8s-rules",
+              "status": "Synced",
+              "message": "prometheusrule.monitoring.coreos.com/prometheus-k8s-rules unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "traefik",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/traefik unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "monitoring.coreos.com",
+              "version": "v1",
+              "kind": "ServiceMonitor",
+              "namespace": "monitoring",
+              "name": "prometheus-operator",
+              "status": "Synced",
+              "message": "servicemonitor.monitoring.coreos.com/prometheus-operator unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            }
+          ],
+          "revision": "3aa314986b470143730668ba6e6eb54975ca0f14",
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests",
+            "targetRevision": "HEAD"
+          }
+        },
+        "startedAt": "2020-07-24T15:44:58Z",
+        "finishedAt": "2020-07-24T15:47:13Z"
+      },
+      "observedAt": "2020-07-24T19:20:33Z",
+      "sourceType": "Directory",
+      "summary": {
+        "externalURLs": [
+          "http://alertmanager.rocket.nordlander.digital:web/",
+          "http://grafana.rocket.nordlander.digital/",
+          "http://prometheus.rocket.nordlander.digital:web/"
+        ],
+        "images": [
+          "carlosedp/arm_exporter:latest",
+          "carlosedp/configmap-reload:latest",
+          "carlosedp/kube-rbac-proxy:v0.5.0",
+          "carlosedp/kube-state-metrics:v1.9.6",
+          "carlosedp/prometheus-config-reloader:v0.40.0",
+          "directxman12/k8s-prometheus-adapter:v0.7.0",
+          "grafana/grafana:7.0.3",
+          "prom/alertmanager:v0.21.0",
+          "prom/node-exporter:v0.18.1",
+          "prom/prometheus:v2.19.1"
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "name": "prometheus-operator",
+      "namespace": "argocd",
+      "selfLink": "/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/prometheus-operator",
+      "uid": "91e1f494-b8bf-42bb-996e-efc53dcdf3f7",
+      "resourceVersion": "3791316",
+      "generation": 799,
+      "creationTimestamp": "2020-07-21T11:24:51Z",
+      "labels": {
+        "app.kubernetes.io/instance": "rocket-apps"
+      },
+      "annotations": {
+        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"argoproj.io/v1alpha1\",\"kind\":\"Application\",\"metadata\":{\"annotations\":{},\"labels\":{\"app.kubernetes.io/instance\":\"rocket-apps\"},\"name\":\"prometheus-operator\",\"namespace\":\"argocd\"},\"spec\":{\"destination\":{\"namespace\":\"monitoring\",\"server\":\"https://kubernetes.default.svc\"},\"project\":\"default\",\"source\":{\"path\":\"apps/monitoring/manifests/setup\",\"repoURL\":\"https://github.com/northlander/rocket-config.git\",\"targetRevision\":\"HEAD\"}}}\n"
+      },
+      "managedFields": [
+        {
+          "manager": "argocd-server",
+          "operation": "Update",
+          "apiVersion": "argoproj.io/v1alpha1",
+          "time": "2020-07-21T11:31:34Z",
+          "fieldsType": "FieldsV1",
+          "fieldsV1": {
+            "f:status": {
+              "f:summary": {}
+            }
+          }
+        },
+        {
+          "manager": "argocd-application-controller",
+          "operation": "Update",
+          "apiVersion": "argoproj.io/v1alpha1",
+          "time": "2020-07-24T19:19:40Z",
+          "fieldsType": "FieldsV1",
+          "fieldsV1": {
+            "f:metadata": {
+              "f:annotations": {
+                ".": {},
+                "f:kubectl.kubernetes.io/last-applied-configuration": {}
+              },
+              "f:labels": {
+                ".": {},
+                "f:app.kubernetes.io/instance": {}
+              }
+            },
+            "f:spec": {
+              ".": {},
+              "f:destination": {
+                ".": {},
+                "f:namespace": {},
+                "f:server": {}
+              },
+              "f:project": {},
+              "f:source": {
+                ".": {},
+                "f:path": {},
+                "f:repoURL": {},
+                "f:targetRevision": {}
+              }
+            },
+            "f:status": {
+              ".": {},
+              "f:health": {
+                ".": {},
+                "f:status": {}
+              },
+              "f:history": {},
+              "f:observedAt": {},
+              "f:operationState": {
+                ".": {},
+                "f:finishedAt": {},
+                "f:message": {},
+                "f:operation": {
+                  ".": {},
+                  "f:initiatedBy": {
+                    ".": {},
+                    "f:username": {}
+                  },
+                  "f:sync": {
+                    ".": {},
+                    "f:prune": {},
+                    "f:revision": {},
+                    "f:syncStrategy": {
+                      ".": {},
+                      "f:hook": {}
+                    }
+                  }
+                },
+                "f:phase": {},
+                "f:startedAt": {},
+                "f:syncResult": {
+                  ".": {},
+                  "f:resources": {},
+                  "f:revision": {},
+                  "f:source": {
+                    ".": {},
+                    "f:path": {},
+                    "f:repoURL": {},
+                    "f:targetRevision": {}
+                  }
+                }
+              },
+              "f:reconciledAt": {},
+              "f:resources": {},
+              "f:sourceType": {},
+              "f:summary": {
+                "f:images": {}
+              },
+              "f:sync": {
+                ".": {},
+                "f:comparedTo": {
+                  ".": {},
+                  "f:destination": {
+                    ".": {},
+                    "f:namespace": {},
+                    "f:server": {}
+                  },
+                  "f:source": {
+                    ".": {},
+                    "f:path": {},
+                    "f:repoURL": {},
+                    "f:targetRevision": {}
+                  }
+                },
+                "f:revision": {},
+                "f:status": {}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "spec": {
+      "source": {
+        "repoURL": "https://github.com/northlander/rocket-config.git",
+        "path": "apps/monitoring/manifests/setup",
+        "targetRevision": "HEAD"
+      },
+      "destination": {
+        "server": "https://kubernetes.default.svc",
+        "namespace": "monitoring"
+      },
+      "project": "default"
+    },
+    "status": {
+      "resources": [
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1",
+          "kind": "CustomResourceDefinition",
+          "name": "podmonitors.monitoring.coreos.com",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRoleBinding",
+          "name": "prometheus-operator",
+          "status": "Synced"
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1",
+          "kind": "CustomResourceDefinition",
+          "name": "servicemonitors.monitoring.coreos.com",
+          "status": "Synced"
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1",
+          "kind": "CustomResourceDefinition",
+          "name": "thanosrulers.monitoring.coreos.com",
+          "status": "Synced"
+        },
+        {
+          "group": "rbac.authorization.k8s.io",
+          "version": "v1",
+          "kind": "ClusterRole",
+          "name": "prometheus-operator",
+          "status": "Synced"
+        },
+        {
+          "group": "apps",
+          "version": "v1",
+          "kind": "Deployment",
+          "namespace": "monitoring",
+          "name": "prometheus-operator",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "Service",
+          "namespace": "monitoring",
+          "name": "prometheus-operator",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1",
+          "kind": "CustomResourceDefinition",
+          "name": "alertmanagers.monitoring.coreos.com",
+          "status": "Synced"
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1",
+          "kind": "CustomResourceDefinition",
+          "name": "prometheuses.monitoring.coreos.com",
+          "status": "Synced"
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1",
+          "kind": "CustomResourceDefinition",
+          "name": "prometheusrules.monitoring.coreos.com",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "ServiceAccount",
+          "namespace": "monitoring",
+          "name": "prometheus-operator",
+          "status": "Synced"
+        }
+      ],
+      "sync": {
+        "status": "Synced",
+        "comparedTo": {
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests/setup",
+            "targetRevision": "HEAD"
+          },
+          "destination": {
+            "server": "https://kubernetes.default.svc",
+            "namespace": "monitoring"
+          }
+        },
+        "revision": "3aa314986b470143730668ba6e6eb54975ca0f14"
+      },
+      "health": {
+        "status": "Healthy"
+      },
+      "history": [
+        {
+          "revision": "8cce053c97c2f44de1f502821753fd7804872eda",
+          "deployedAt": "2020-07-21T11:25:38Z",
+          "id": 0,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests/setup",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "revision": "8cce053c97c2f44de1f502821753fd7804872eda",
+          "deployedAt": "2020-07-21T11:41:03Z",
+          "id": 1,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests/setup",
+            "targetRevision": "HEAD"
+          }
+        }
+      ],
+      "reconciledAt": "2020-07-24T19:13:36Z",
+      "operationState": {
+        "operation": {
+          "sync": {
+            "revision": "8cce053c97c2f44de1f502821753fd7804872eda",
+            "prune": true,
+            "syncStrategy": {
+              "hook": {}
+            }
+          },
+          "initiatedBy": {
+            "username": "admin"
+          }
+        },
+        "phase": "Succeeded",
+        "message": "successfully synced (all tasks run)",
+        "syncResult": {
+          "resources": [
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Namespace",
+              "namespace": "monitoring",
+              "name": "monitoring",
+              "status": "Synced",
+              "message": "namespace/monitoring configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "ServiceAccount",
+              "namespace": "monitoring",
+              "name": "prometheus-operator",
+              "status": "Synced",
+              "message": "serviceaccount/prometheus-operator unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "monitoring",
+              "name": "prometheusrules.monitoring.coreos.com",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/prometheusrules.monitoring.coreos.com configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "monitoring",
+              "name": "podmonitors.monitoring.coreos.com",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/podmonitors.monitoring.coreos.com configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "monitoring",
+              "name": "servicemonitors.monitoring.coreos.com",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/servicemonitors.monitoring.coreos.com configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "monitoring",
+              "name": "alertmanagers.monitoring.coreos.com",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/alertmanagers.monitoring.coreos.com configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "monitoring",
+              "name": "thanosrulers.monitoring.coreos.com",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/thanosrulers.monitoring.coreos.com configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "monitoring",
+              "name": "prometheuses.monitoring.coreos.com",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/prometheuses.monitoring.coreos.com configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRole",
+              "namespace": "monitoring",
+              "name": "prometheus-operator",
+              "status": "Synced",
+              "message": "clusterrole.rbac.authorization.k8s.io/prometheus-operator reconciled. clusterrole.rbac.authorization.k8s.io/prometheus-operator unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "rbac.authorization.k8s.io",
+              "version": "v1",
+              "kind": "ClusterRoleBinding",
+              "namespace": "monitoring",
+              "name": "prometheus-operator",
+              "status": "Synced",
+              "message": "clusterrolebinding.rbac.authorization.k8s.io/prometheus-operator reconciled. clusterrolebinding.rbac.authorization.k8s.io/prometheus-operator unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Service",
+              "namespace": "monitoring",
+              "name": "prometheus-operator",
+              "status": "Synced",
+              "message": "service/prometheus-operator unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apps",
+              "version": "v1",
+              "kind": "Deployment",
+              "namespace": "monitoring",
+              "name": "prometheus-operator",
+              "status": "Synced",
+              "message": "deployment.apps/prometheus-operator unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            }
+          ],
+          "revision": "8cce053c97c2f44de1f502821753fd7804872eda",
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config.git",
+            "path": "apps/monitoring/manifests/setup",
+            "targetRevision": "HEAD"
+          }
+        },
+        "startedAt": "2020-07-21T11:31:35Z",
+        "finishedAt": "2020-07-21T11:41:03Z"
+      },
+      "observedAt": "2020-07-24T19:13:36Z",
+      "sourceType": "Directory",
+      "summary": {
+        "images": [
+          "carlosedp/kube-rbac-proxy:v0.5.0",
+          "carlosedp/prometheus-operator:v0.40.0"
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "name": "rocket-apps",
+      "namespace": "argocd",
+      "selfLink": "/apis/argoproj.io/v1alpha1/namespaces/argocd/applications/rocket-apps",
+      "uid": "2b217760-a6ba-468e-a1e3-2f777699bd43",
+      "resourceVersion": "3791393",
+      "generation": 23964,
+      "creationTimestamp": "2020-07-05T19:30:47Z",
+      "managedFields": [
+        {
+          "manager": "argocd-server",
+          "operation": "Update",
+          "apiVersion": "argoproj.io/v1alpha1",
+          "time": "2020-07-21T12:28:50Z",
+          "fieldsType": "FieldsV1",
+          "fieldsV1": {
+            "f:spec": {
+              ".": {},
+              "f:destination": {
+                ".": {},
+                "f:namespace": {},
+                "f:server": {}
+              },
+              "f:project": {},
+              "f:source": {
+                ".": {},
+                "f:path": {},
+                "f:repoURL": {}
+              }
+            },
+            "f:status": {
+              ".": {},
+              "f:health": {},
+              "f:summary": {},
+              "f:sync": {
+                ".": {},
+                "f:comparedTo": {
+                  ".": {},
+                  "f:destination": {},
+                  "f:source": {}
+                }
+              }
+            }
+          }
+        },
+        {
+          "manager": "argocd-application-controller",
+          "operation": "Update",
+          "apiVersion": "argoproj.io/v1alpha1",
+          "time": "2020-07-24T19:20:40Z",
+          "fieldsType": "FieldsV1",
+          "fieldsV1": {
+            "f:status": {
+              "f:health": {
+                "f:status": {}
+              },
+              "f:history": {},
+              "f:observedAt": {},
+              "f:operationState": {
+                ".": {},
+                "f:finishedAt": {},
+                "f:message": {},
+                "f:operation": {
+                  ".": {},
+                  "f:initiatedBy": {
+                    ".": {},
+                    "f:username": {}
+                  },
+                  "f:sync": {
+                    ".": {},
+                    "f:revision": {},
+                    "f:syncStrategy": {
+                      ".": {},
+                      "f:hook": {}
+                    }
+                  }
+                },
+                "f:phase": {},
+                "f:startedAt": {},
+                "f:syncResult": {
+                  ".": {},
+                  "f:resources": {},
+                  "f:revision": {},
+                  "f:source": {
+                    ".": {},
+                    "f:path": {},
+                    "f:repoURL": {}
+                  }
+                }
+              },
+              "f:reconciledAt": {},
+              "f:resources": {},
+              "f:sourceType": {},
+              "f:sync": {
+                "f:comparedTo": {
+                  "f:destination": {
+                    "f:namespace": {},
+                    "f:server": {}
+                  },
+                  "f:source": {
+                    "f:path": {},
+                    "f:repoURL": {}
+                  }
+                },
+                "f:revision": {},
+                "f:status": {}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "spec": {
+      "source": {
+        "repoURL": "https://github.com/northlander/rocket-config",
+        "path": "boot"
+      },
+      "destination": {
+        "server": "https://kubernetes.default.svc",
+        "namespace": "argocd"
+      },
+      "project": "default"
+    },
+    "status": {
+      "resources": [
+        {
+          "version": "v1",
+          "kind": "Namespace",
+          "name": "monitoring",
+          "status": "Synced"
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1beta1",
+          "kind": "CustomResourceDefinition",
+          "name": "ingressroutetcps.traefik.containo.us",
+          "status": "Synced"
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1beta1",
+          "kind": "CustomResourceDefinition",
+          "name": "tlsstores.traefik.containo.us",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "LimitRange",
+          "namespace": "ingress",
+          "name": "namespace-default-memory-limit-range",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "LimitRange",
+          "namespace": "applications",
+          "name": "namespace-default-memory-limit-range",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "Namespace",
+          "name": "ingress",
+          "status": "Synced"
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1beta1",
+          "kind": "CustomResourceDefinition",
+          "name": "tlsoptions.traefik.containo.us",
+          "status": "Synced"
+        },
+        {
+          "version": "v1",
+          "kind": "LimitRange",
+          "namespace": "monitoring",
+          "name": "namespace-default-memory-limit-range",
+          "status": "Synced"
+        },
+        {
+          "group": "argoproj.io",
+          "version": "v1alpha1",
+          "kind": "Application",
+          "namespace": "argocd",
+          "name": "ingress",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1beta1",
+          "kind": "CustomResourceDefinition",
+          "name": "ingressroutes.traefik.containo.us",
+          "status": "Synced"
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1beta1",
+          "kind": "CustomResourceDefinition",
+          "name": "ingressrouteudps.traefik.containo.us",
+          "status": "Synced"
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1beta1",
+          "kind": "CustomResourceDefinition",
+          "name": "middlewares.traefik.containo.us",
+          "status": "Synced"
+        },
+        {
+          "group": "apiextensions.k8s.io",
+          "version": "v1beta1",
+          "kind": "CustomResourceDefinition",
+          "name": "traefikservices.traefik.containo.us",
+          "status": "Synced"
+        },
+        {
+          "group": "argoproj.io",
+          "version": "v1alpha1",
+          "kind": "Application",
+          "namespace": "argocd",
+          "name": "monitoring",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "version": "v1",
+          "kind": "Namespace",
+          "name": "applications",
+          "status": "Synced"
+        },
+        {
+          "group": "argoproj.io",
+          "version": "v1alpha1",
+          "kind": "Application",
+          "namespace": "argocd",
+          "name": "hello-arch",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        },
+        {
+          "group": "argoproj.io",
+          "version": "v1alpha1",
+          "kind": "Application",
+          "namespace": "argocd",
+          "name": "prometheus-operator",
+          "status": "Synced",
+          "health": {
+            "status": "Healthy"
+          }
+        }
+      ],
+      "sync": {
+        "status": "Synced",
+        "comparedTo": {
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          },
+          "destination": {
+            "server": "https://kubernetes.default.svc",
+            "namespace": "argocd"
+          }
+        },
+        "revision": "3aa314986b470143730668ba6e6eb54975ca0f14"
+      },
+      "health": {
+        "status": "Healthy"
+      },
+      "history": [
+        {
+          "revision": "f75c79d47d72ccc2083bfb18ffb6ef678740d185",
+          "deployedAt": "2020-07-20T23:41:45Z",
+          "id": 26,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        },
+        {
+          "revision": "f75c79d47d72ccc2083bfb18ffb6ef678740d185",
+          "deployedAt": "2020-07-20T23:45:17Z",
+          "id": 27,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        },
+        {
+          "revision": "f75c79d47d72ccc2083bfb18ffb6ef678740d185",
+          "deployedAt": "2020-07-20T23:47:24Z",
+          "id": 28,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        },
+        {
+          "revision": "5a54630624669d96b868abf73fedc2f766540a32",
+          "deployedAt": "2020-07-20T23:57:14Z",
+          "id": 29,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        },
+        {
+          "revision": "5a54630624669d96b868abf73fedc2f766540a32",
+          "deployedAt": "2020-07-21T00:18:43Z",
+          "id": 30,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        },
+        {
+          "revision": "2331332a121334ddf7c7077bf010dbd5deb94c64",
+          "deployedAt": "2020-07-21T11:13:32Z",
+          "id": 31,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        },
+        {
+          "revision": "74977530ae60e37ea2ef3b49f10821dd725fe775",
+          "deployedAt": "2020-07-21T11:14:44Z",
+          "id": 32,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        },
+        {
+          "revision": "8cce053c97c2f44de1f502821753fd7804872eda",
+          "deployedAt": "2020-07-21T11:24:52Z",
+          "id": 33,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        },
+        {
+          "revision": "8cce053c97c2f44de1f502821753fd7804872eda",
+          "deployedAt": "2020-07-21T11:27:05Z",
+          "id": 34,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        },
+        {
+          "revision": "57358a6a478c2f1192da8147cc05cd1b016cfe1a",
+          "deployedAt": "2020-07-21T12:28:49Z",
+          "id": 35,
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        }
+      ],
+      "reconciledAt": "2020-07-24T19:20:39Z",
+      "operationState": {
+        "operation": {
+          "sync": {
+            "revision": "57358a6a478c2f1192da8147cc05cd1b016cfe1a",
+            "syncStrategy": {
+              "hook": {}
+            }
+          },
+          "initiatedBy": {
+            "username": "admin"
+          }
+        },
+        "phase": "Succeeded",
+        "message": "successfully synced (all tasks run)",
+        "syncResult": {
+          "resources": [
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Namespace",
+              "namespace": "argocd",
+              "name": "ingress",
+              "status": "Synced",
+              "message": "namespace/ingress unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Namespace",
+              "namespace": "argocd",
+              "name": "monitoring",
+              "status": "Synced",
+              "message": "namespace/monitoring configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "Namespace",
+              "namespace": "argocd",
+              "name": "applications",
+              "status": "Synced",
+              "message": "namespace/applications unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "LimitRange",
+              "namespace": "applications",
+              "name": "namespace-default-memory-limit-range",
+              "status": "Synced",
+              "message": "limitrange/namespace-default-memory-limit-range unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "LimitRange",
+              "namespace": "ingress",
+              "name": "namespace-default-memory-limit-range",
+              "status": "Synced",
+              "message": "limitrange/namespace-default-memory-limit-range unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "",
+              "version": "v1",
+              "kind": "LimitRange",
+              "namespace": "monitoring",
+              "name": "namespace-default-memory-limit-range",
+              "status": "Synced",
+              "message": "limitrange/namespace-default-memory-limit-range configured",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1beta1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "argocd",
+              "name": "tlsoptions.traefik.containo.us",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/tlsoptions.traefik.containo.us unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1beta1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "argocd",
+              "name": "tlsstores.traefik.containo.us",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/tlsstores.traefik.containo.us unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1beta1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "argocd",
+              "name": "ingressrouteudps.traefik.containo.us",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/ingressrouteudps.traefik.containo.us unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1beta1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "argocd",
+              "name": "traefikservices.traefik.containo.us",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/traefikservices.traefik.containo.us unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1beta1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "argocd",
+              "name": "ingressroutetcps.traefik.containo.us",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/ingressroutetcps.traefik.containo.us unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1beta1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "argocd",
+              "name": "ingressroutes.traefik.containo.us",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/ingressroutes.traefik.containo.us unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "apiextensions.k8s.io",
+              "version": "v1beta1",
+              "kind": "CustomResourceDefinition",
+              "namespace": "argocd",
+              "name": "middlewares.traefik.containo.us",
+              "status": "Synced",
+              "message": "customresourcedefinition.apiextensions.k8s.io/middlewares.traefik.containo.us unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "argoproj.io",
+              "version": "v1alpha1",
+              "kind": "Application",
+              "namespace": "argocd",
+              "name": "prometheus-operator",
+              "status": "Synced",
+              "message": "application.argoproj.io/prometheus-operator unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "argoproj.io",
+              "version": "v1alpha1",
+              "kind": "Application",
+              "namespace": "argocd",
+              "name": "ingress",
+              "status": "Synced",
+              "message": "application.argoproj.io/ingress unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "argoproj.io",
+              "version": "v1alpha1",
+              "kind": "Application",
+              "namespace": "argocd",
+              "name": "hello-arch",
+              "status": "Synced",
+              "message": "application.argoproj.io/hello-arch unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            },
+            {
+              "group": "argoproj.io",
+              "version": "v1alpha1",
+              "kind": "Application",
+              "namespace": "argocd",
+              "name": "monitoring",
+              "status": "Synced",
+              "message": "application.argoproj.io/monitoring unchanged",
+              "hookPhase": "Running",
+              "syncPhase": "Sync"
+            }
+          ],
+          "revision": "57358a6a478c2f1192da8147cc05cd1b016cfe1a",
+          "source": {
+            "repoURL": "https://github.com/northlander/rocket-config",
+            "path": "boot"
+          }
+        },
+        "startedAt": "2020-07-21T12:28:25Z",
+        "finishedAt": "2020-07-21T12:28:49Z"
+      },
+      "observedAt": "2020-07-24T19:20:40Z",
+      "sourceType": "Helm",
+      "summary": {}
+    }
+  }
+]
