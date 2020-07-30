@@ -12,13 +12,9 @@ export async function addRepo(){
 
     const repoSettings: V1alpha1Repository = {};
 
-    console.log("Adding a repository");
-
     // Helm or Git
     repoSettings.type = await vscode.window.showQuickPick( ['helm', 'git'], 
         {canPickMany: false, placeHolder: 'What type of repository do you want to add?'});
-
-    console.log(`A ${repoSettings.type} repo is selected`);
 
     // Name
     if ( repoSettings.type === 'helm') {
@@ -74,8 +70,6 @@ export async function addRepo(){
     if ( repoSettings.type === 'git' && await showYesNoQuestion("Do you want to enable LFS support?" )) {
         repoSettings.enableLfs = true;
     }
-
-    console.log(JSON.stringify(repoSettings));
 }
 
 async function loadFileFromDiaogAsync(title: string) {

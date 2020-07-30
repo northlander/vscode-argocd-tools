@@ -3,6 +3,7 @@ import * as shell from 'shelljs';
 import * as vscode from 'vscode';
 import { V1alpha1Repository } from "./api/gen/model/v1alpha1Repository";
 import { V1alpha1Application } from "./api/gen/model/v1alpha1Application";
+import { join } from "path";
 
 export interface IArgocd{
     /**
@@ -25,6 +26,28 @@ export interface IArgocd{
      * List all applications in current Argocd context.
      */
     listApplications(): Promise<V1alpha1Application[]>;
+
+    /**
+     * Synchronize Applications and resources.
+     * @param applicationNames Sync multiples apps by these names
+     * @param selector Sync apps that match this labels
+     * @param resources Sync only specific resources as GROUP:KIND:NAME. Fields may be blank.
+     * @param labels Sync only specific resources with a label
+     * @param force Use a force apply
+     * @param dryRun Preview apply without affecting cluster
+     * @param prune Allow deleting unexpected resources
+     * @param strategy Sync strategy (one of: apply|hook)
+     * @param revision Sync to a specific revision. Preserves parameter overrides
+     */
+    syncResource(applicationNames: string[],
+                 selector: string[],
+                 resources: string[],
+                 labels: string[], 
+                 force: boolean, 
+                 dryRun: boolean, 
+                 prune: boolean, 
+                 strategy: string, 
+                 revision?: string): Promise<void>;
 }
 
 interface TableRow
@@ -84,7 +107,31 @@ export const Argocd : IArgocd = {
             return Promise.resolve(apps);
         }
         return Promise.resolve([]);
-    }
+    },
+
+    async syncResource( applicationNames: string[],
+                        selector: string[],
+                        resources: string[],
+                        labels: string[],
+                        force = false, 
+                        dryRun = false, 
+                        prune = false, 
+                        strategy = "apply", 
+                        revision?: string): Promise<void>{
+            let command = "argocd app sync";
+            command += joinWithPrefixIfNotEmpty(applicationNames, " ");
+            command += joinWithPrefixIfNotEmpty(resources, " --resources ");
+            command += joinWithPrefixIfNotEmpty(labels, " --label ");
+            command += joinWithPrefixIfNotEmpty(selector, " --selector ");
+            if (force) { command += " --force"; }
+            if (dryRun) { command += " --dry-run"; }
+            if (prune) { command += " --prune"; }
+
+            command += " --async";
+
+            if (DEBUGLOG) { console.log(`ARGOCD: Sync Command: ${command}`); }
+            const shellResult = await execAsync(command);
+        }
 };
 
 async function execAsync(cmd: string, stdin?: string): Promise<ShellResult | undefined> {
@@ -190,4 +237,10 @@ function parseSpaceAdjustedTable(tx: string[]):TableRow[] {
         return [];
     }
     
+}
+
+function joinWithPrefixIfNotEmpty(values:string[], prefix: string) {
+    const joined = values.join(' ');
+    if (joined) { return `${prefix}${joined}`; }
+    else { return ''; };
 }

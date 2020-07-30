@@ -24,7 +24,8 @@
 		"onCommand:extension.vsArgocdTools.addRepo",
 		"onCommand:extension.vsArgocdTools.refreshContexts",
 		"onCommand:extension.vsArgocdTools.refreshRepos",
-		"onCommand:extension.vsArgocdTools.refreshApplications"
+		"onCommand:extension.vsArgocdTools.refreshApplications",
+		"onCommand:extension.vsArgocdTools.sync"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -75,6 +76,10 @@
 				{
 					"command": "extension.vsArgocdTools.setCurrentContext",
 					"when": "view == extension.vsArgocdTools.contexts && viewItem == vsArgocdTools.context"
+				},
+				{
+					"command": "extension.vsArgocdTools.sync",
+					"when": "view == extension.vsArgocdTools.applications && viewItem == vsArgocdTools.application"
 				}
 			],
 			"view/title": [
@@ -134,6 +139,11 @@
 				"title": "Refresh",
 				"category": "Argocd Applications",
 				"icon": "$(sync)"
+			},
+			{
+				"command": "extension.vsArgocdTools.sync",
+				"title": "Sync",
+				"category": "Argocd Applications"
 			}
 		]
 	},

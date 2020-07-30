@@ -1,9 +1,13 @@
 import * as vscode from 'vscode';
-import { VsArgocdNodeContextValues } from './constants';
+import { VsArgocdNodeContextValues, ArgocdIcons, OperationPhases } from './constants';
 import { V1alpha1Application } from './api/gen/model/v1alpha1Application';
 import { Argocd } from './argocd.service';
+import { V1alpha1SyncOperationResult } from './api/gen/model/v1alpha1SyncOperationResult';
+import { V1alpha1ApplicationStatus } from './api/gen/model/v1alpha1ApplicationStatus';
+import { sync } from 'glob';
 
 export interface ArgocdApplicationNode {
+    appModel: V1alpha1Application;
     getChildren(): Promise<ArgocdApplicationNode[]>;
     getTreeItem(): vscode.TreeItem;
 }
@@ -18,7 +22,9 @@ class ArgocdApplicationNodeImpl implements ArgocdApplicationNode {
         treeItem.description = this.appModel.status?.sync?.status + 
                                     ' | ' +
                                 this.appModel.status?.health?.status;
-        treeItem.contextValue = VsArgocdNodeContextValues.Repo;
+        treeItem.contextValue = VsArgocdNodeContextValues.Application;
+        treeItem.iconPath = new vscode.ThemeIcon(this.syncStatusToIcon(this.appModel?.status));
+        
         return treeItem;
     }
 
@@ -29,6 +35,24 @@ class ArgocdApplicationNodeImpl implements ArgocdApplicationNode {
     private getLabel(): string {
         return this.appModel.metadata?.name || '<unknown>';
     }
+
+    private syncStatusToIcon(appStatus?: V1alpha1ApplicationStatus) {
+        const operationPhase = appStatus?.operationState?.phase;
+        if ( operationPhase === OperationPhases.Succeeded ) {
+            const syncStatus = appStatus?.sync?.status;
+            if (syncStatus === 'Unknown') { return ArgocdIcons.Unknown; }
+            else if (syncStatus === 'Synced') { return ArgocdIcons.Synced; }
+            else if (syncStatus=== 'OutOfSync') { return ArgocdIcons.OutOfSync; }
+            else { return ArgocdIcons.Unknown; }
+        } else if ( operationPhase === OperationPhases.Running ) {
+            return ArgocdIcons.Syncing;
+        } else if ( operationPhase === OperationPhases.Failed || operationPhase === OperationPhases.Error ) {
+            return ArgocdIcons.SyncError;
+        } else {
+            return ArgocdIcons.SyncTerminating;
+        }
+    }
+
 }
 
 export class ArgocdApplicationExplorer implements vscode.TreeDataProvider<ArgocdApplicationNode> {
