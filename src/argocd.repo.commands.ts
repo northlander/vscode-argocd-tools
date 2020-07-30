@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { V1alpha1Repository } from './api/api';
+import { V1alpha1Repository } from './api/gen/model/v1alpha1Repository';
 import { showYesNoQuestion } from './vscodeutills';
 import * as fs from 'async-file';
 

@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { VsArgocdNodeContextValues } from './constants';
-import { V1alpha1Repository } from './api/api';
+import { V1alpha1Repository } from './api/gen/model/v1alpha1Repository';
 
 export interface ArgocdRepoNode {
     getChildren(): Promise<ArgocdRepoNode[]>;
