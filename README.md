@@ -1,6 +1,6 @@
 # argocd-tools README
 
-This is the README for your extension "argocd-tools". After writing up a brief description, we recommend including the following sections.
+Handle you Argocd deployment from inside VSCode!
 
 ## Features
 

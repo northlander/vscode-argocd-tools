@@ -18,11 +18,13 @@
 	"activationEvents": [
 		"onView:extension.vsArgocdTools.contexts",
 		"onView:extension.vsArgocdTools.repos",
+		"onView:extension.vsArgocdTools.apps",
 		"onCommand:extension.vsArgocdTools.deleteContextEntry",
 		"onCommand:extension.vsArgocdTools.setCurrentContext",
 		"onCommand:extension.vsArgocdTools.addRepo",
 		"onCommand:extension.vsArgocdTools.refreshContexts",
-		"onCommand:extension.vsArgocdTools.refreshRepos"
+		"onCommand:extension.vsArgocdTools.refreshRepos",
+		"onCommand:extension.vsArgocdTools.refreshApplications"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -53,7 +55,7 @@
 					"icon": "resources/dark/dependency.svg"
 				},
 				{
-					"id": "extension.vsArgocdTools.apps",
+					"id": "extension.vsArgocdTools.applications",
 					"name": "Applications",
 					"icon": "resources/dark/dependency.svg"
 				},
@@ -90,6 +92,11 @@
 					"command": "extension.vsArgocdTools.addRepo",
 					"when": "view == extension.vsArgocdTools.repos",
 					"group": "navigation"
+				},
+				{
+					"command": "extension.vsArgocdTools.refreshApplications",
+					"when": "view == extension.vsArgocdTools.applications",
+					"group": "navigation"
 				}
 			]
 		},
@@ -121,6 +128,12 @@
 				"title": "Add",
 				"category": "Argocd Repos",
 				"icon": "$(gist-new)"
+			},
+			{
+				"command": "extension.vsArgocdTools.refreshApplications",
+				"title": "Refresh",
+				"category": "Argocd Applications",
+				"icon": "$(sync)"
 			}
 		]
 	},

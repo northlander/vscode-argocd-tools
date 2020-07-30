@@ -2,6 +2,7 @@ import { ArgocdContext } from "./argocd.context";
 import * as shell from 'shelljs';
 import * as vscode from 'vscode';
 import { V1alpha1Repository } from "./api/gen/model/v1alpha1Repository";
+import { V1alpha1Application } from "./api/gen/model/v1alpha1Application";
 
 export interface IArgocd{
     /**
@@ -15,7 +16,15 @@ export interface IArgocd{
      */
     setCurrentContext(ctx: ArgocdContext): Promise<void>;
 
+    /**
+     * List all Repositories in current Argocd Context.
+     */
     listRepos():Promise<V1alpha1Repository[]>;
+
+    /**
+     * List all applications in current Argocd context.
+     */
+    listApplications(): Promise<V1alpha1Application[]>;
 }
 
 interface TableRow
@@ -63,6 +72,16 @@ export const Argocd : IArgocd = {
         if (shellResult?.stdout) {
             const repos:V1alpha1Repository[] = JSON.parse(shellResult.stdout);
             return Promise.resolve(repos);
+        }
+        return Promise.resolve([]);
+    },
+
+    async listApplications(): Promise<V1alpha1Application[]> {
+        if (DEBUGLOG) { console.log("ARGOCD: Listing Applications"); }
+        const shellResult = await execAsync(`argocd app list -o json`);
+        if (shellResult?.stdout) {
+            const apps:V1alpha1Application[] = JSON.parse(shellResult.stdout);
+            return Promise.resolve(apps);
         }
         return Promise.resolve([]);
     }

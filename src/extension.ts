@@ -5,6 +5,7 @@ import { ArgocdContextExplorer, ArgocdContextNode } from './argocd.ctx.explorer'
 import { ArgocdRepoExplorer } from './argocd.repo.explorer';
 import { addRepo } from './argocd.repo.commands';
 import { Argocd } from './argocd.service';
+import { ArgocdApplicationExplorer } from './argocd.app.explorer';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -12,13 +13,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const argocdContextExplorer = new ArgocdContextExplorer();
 	const argocdRepoExplorer = new ArgocdRepoExplorer();
+	const argocdApplicationExplorer = new ArgocdApplicationExplorer();
 
 	const subscriptions = [
 		vscode.commands.registerCommand("extension.vsArgocdTools.deleteContextEntry", (node?: ArgocdContextNode) => deleteContext(argocdContextExplorer, node)),
 		vscode.commands.registerCommand("extension.vsArgocdTools.setCurrentContext", (node?: ArgocdContextNode) => setCurrentContext(argocdContextExplorer, node)),
 		vscode.commands.registerCommand("extension.vsArgocdTools.addRepo", addRepo),
 		vscode.commands.registerCommand("extension.vsArgocdTools.refreshContexts", () => argocdContextExplorer.refresh()),
-		vscode.commands.registerCommand("extension.vsArgocdTools.refreshRepos", () => argocdRepoExplorer.refresh())
+		vscode.commands.registerCommand("extension.vsArgocdTools.refreshRepos", () => argocdRepoExplorer.refresh()),
+		vscode.commands.registerCommand("extension.vsArgocdTools.refreshApplications", () => argocdApplicationExplorer.refresh())
 	];
 	
 	subscriptions.forEach((element) => {
@@ -27,6 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	vscode.window.registerTreeDataProvider('extension.vsArgocdTools.contexts', argocdContextExplorer);
 	vscode.window.registerTreeDataProvider('extension.vsArgocdTools.repos', argocdRepoExplorer);
+	vscode.window.registerTreeDataProvider('extension.vsArgocdTools.applications', argocdApplicationExplorer);
 }
 
 // this method is called when your extension is deactivated
