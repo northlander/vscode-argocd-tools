@@ -3,6 +3,7 @@
 import * as vscode from 'vscode';
 import { ArgocdContextExplorer, ArgocdContextNode } from './argocd.ctx.explorer';
 import { ArgocdRepoExplorer } from './argocd.repo.explorer';
+import { addRepo } from './argocd.repo.commands';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -10,13 +11,14 @@ export function activate(context: vscode.ExtensionContext) {
 
 	const subscriptions = [
 		vscode.commands.registerCommand("extension.vsArgocdTools.deleteContextEntry", deleteContext),
-		vscode.commands.registerCommand("extension.vsArgocdTools.setCurrentContext", setCurrentContext)
+		vscode.commands.registerCommand("extension.vsArgocdTools.setCurrentContext", setCurrentContext),
+		vscode.commands.registerCommand("extension.vsArgocdTools.addRepo", addRepo)
 	];
 
 	subscriptions.forEach((element) => {
         context.subscriptions.push(element);
 	});
-	
+
 	const argocdContextExplorer = new ArgocdContextExplorer();
 	const argocdRepoExplorer = new ArgocdRepoExplorer();
 	vscode.window.registerTreeDataProvider('extension.vsArgocdTools.contexts', argocdContextExplorer);

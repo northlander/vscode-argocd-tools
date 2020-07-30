@@ -35,8 +35,8 @@
 				}
 			]
 		},
-		"views":{
-			"argocdView":[
+		"views": {
+			"argocdView": [
 				{
 					"id": "extension.vsArgocdTools.contexts",
 					"name": "Argocd Contexts",
@@ -93,7 +93,7 @@
 				}
 			]
 		},
-		"commands":[
+		"commands": [
 			{
 				"command": "extension.vsArgocdTools.deleteContextEntry",
 				"title": "Delete",
@@ -132,7 +132,6 @@
 		"pretest": "npm run compile && npm run lint",
 		"test": "node ./out/test/runTest.js"
 	},
-	
 	"devDependencies": {
 		"@types/vscode": "^1.47.0",
 		"@types/glob": "^7.1.1",
@@ -145,5 +144,12 @@
 		"mocha": "^7.1.2",
 		"typescript": "^3.8.3",
 		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {
+		"@types/shelljs": "^0.8.8",
+		"async-file": "^2.0.2",
+		"portable-fetch": "^3.0.0",
+		"shelljs": "^0.8.4",
+		"url": "^0.11.0"
 	}
 }

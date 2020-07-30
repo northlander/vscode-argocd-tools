@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { VsArgocdNodeContextValues } from './constants';
+import { ArgocdContext } from './argocd.context';
 
 export interface ArgocdContextNode {
     getChildren(): Promise<ArgocdContextNode[]>;
@@ -7,14 +8,15 @@ export interface ArgocdContextNode {
 }
 
 class ArgocdContextNodeImpl implements ArgocdContextNode {
-    constructor(readonly name: string, readonly server: string, readonly current: boolean) {
 
+    constructor(readonly ctx: ArgocdContext){
+        
     }
 
     getTreeItem(): vscode.TreeItem {
 
-        const treeItem = new vscode.TreeItem(`${this.name}`, vscode.TreeItemCollapsibleState.None);
-        if ( this.current ) {
+        const treeItem = new vscode.TreeItem(`${this.ctx.name}`, vscode.TreeItemCollapsibleState.None);
+        if ( this.ctx.current ) {
             treeItem.iconPath = new vscode.ThemeIcon("menu-selection");
         }
         
@@ -70,8 +72,8 @@ export class ArgocdContextExplorer implements vscode.TreeDataProvider<ArgocdCont
 
     private async getArgocdContexts(): Promise<ArgocdContextNode[]> {
         return Promise.resolve([
-            new ArgocdContextNodeImpl("grpc.argocd.nordlander.digital", "grpc.argocd.nordlander.digital", false),
-            new ArgocdContextNodeImpl("argocd-server", "argocd-server", true)
+            new ArgocdContextNodeImpl({name: "grpc.argocd.nordlander.digital", server: "grpc.argocd.nordlander.digital", current: false}),
+            new ArgocdContextNodeImpl({name: "argocd-server", server:"argocd-server", current: true})
         ]);
     }
 }
