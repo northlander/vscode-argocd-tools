@@ -1,22 +1,24 @@
 import * as vscode from 'vscode';
 import { VsArgocdNodeContextValues } from './constants';
 import { ArgocdContext } from './argocd.context';
+import { IArgocd, Argocd } from './argocd.service';
 
 export interface ArgocdContextNode {
+    context: ArgocdContext;
     getChildren(): Promise<ArgocdContextNode[]>;
     getTreeItem(): vscode.TreeItem;
 }
 
 class ArgocdContextNodeImpl implements ArgocdContextNode {
 
-    constructor(readonly ctx: ArgocdContext){
-        
+    constructor(readonly context: ArgocdContext){
+
     }
 
     getTreeItem(): vscode.TreeItem {
 
-        const treeItem = new vscode.TreeItem(`${this.ctx.name}`, vscode.TreeItemCollapsibleState.None);
-        if ( this.ctx.current ) {
+        const treeItem = new vscode.TreeItem(`${this.context.name}`, vscode.TreeItemCollapsibleState.None);
+        if ( this.context.current ) {
             treeItem.iconPath = new vscode.ThemeIcon("menu-selection");
         }
         
@@ -28,7 +30,7 @@ class ArgocdContextNodeImpl implements ArgocdContextNode {
         return Promise.resolve([]);
     }
 }
-
+/*
 class ArgocdContextErrorNode implements ArgocdContextNode {
     constructor(private readonly text: string, private readonly detail: string) {
 
@@ -48,14 +50,16 @@ class ArgocdContextErrorNode implements ArgocdContextNode {
     async getChildren(): Promise<ArgocdContextNodeImpl[]> {
         return [];
     }
-}
+}*/
 
 export class ArgocdContextExplorer implements vscode.TreeDataProvider<ArgocdContextNode> {
-    private onDidChangeTreeDataEmitter: vscode.EventEmitter<ArgocdContextNode | undefined> = new vscode.EventEmitter<ArgocdContextNode | undefined>();
-    readonly onDidChangeTreeData: vscode.Event<ArgocdContextNode | undefined> = this.onDidChangeTreeDataEmitter.event;
+
+    private _onDidChangeTreeData: vscode.EventEmitter<ArgocdContextNode | undefined> = new vscode.EventEmitter<ArgocdContextNode | undefined>();
+    readonly onDidChangeTreeData: vscode.Event<ArgocdContextNode | undefined> = this._onDidChangeTreeData.event;
+
+    readonly argocdService:IArgocd = Argocd;
 
     constructor() {
-
     }
 
     getTreeItem(element: ArgocdContextNode): vscode.TreeItem | Thenable<vscode.TreeItem> {
@@ -70,11 +74,14 @@ export class ArgocdContextExplorer implements vscode.TreeDataProvider<ArgocdCont
         return this.getArgocdContexts();
     }
 
+    refresh(node?: ArgocdContextNode): void {
+        this._onDidChangeTreeData.fire(node);
+    }
+
     private async getArgocdContexts(): Promise<ArgocdContextNode[]> {
-        return Promise.resolve([
-            new ArgocdContextNodeImpl({name: "grpc.argocd.nordlander.digital", server: "grpc.argocd.nordlander.digital", current: false}),
-            new ArgocdContextNodeImpl({name: "argocd-server", server:"argocd-server", current: true})
-        ]);
+        return (await this.argocdService.listContexts()).map(ctx => {
+            return new ArgocdContextNodeImpl(ctx);
+        });
     }
 }
 
