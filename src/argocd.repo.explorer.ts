@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { VsArgocdNodeContextValues } from './constants';
 import { V1alpha1Repository } from './api/gen/model/v1alpha1Repository';
+import { Argocd } from './argocd.service';
 
 export interface ArgocdRepoNode {
     getChildren(): Promise<ArgocdRepoNode[]>;
@@ -29,8 +30,8 @@ class ArgocdRepoNodeImpl implements ArgocdRepoNode {
 }
 
 export class ArgocdRepoExplorer implements vscode.TreeDataProvider<ArgocdRepoNode> {
-    private onDidChangeTreeDataEmitter: vscode.EventEmitter<ArgocdRepoNode | undefined> = new vscode.EventEmitter<ArgocdRepoNode | undefined>();
-    readonly onDidChangeTreeData: vscode.Event<ArgocdRepoNode | undefined> = this.onDidChangeTreeDataEmitter.event;
+    private _onDidChangeTreeData: vscode.EventEmitter<ArgocdRepoNode | undefined> = new vscode.EventEmitter<ArgocdRepoNode | undefined>();
+    readonly onDidChangeTreeData: vscode.Event<ArgocdRepoNode | undefined> = this._onDidChangeTreeData.event;
 
     constructor() {
 
@@ -48,41 +49,12 @@ export class ArgocdRepoExplorer implements vscode.TreeDataProvider<ArgocdRepoNod
         return this.getArgocdRepos();
     }
 
-    private async getArgocdRepos(): Promise<ArgocdRepoNode[]> {
+    refresh(node?:ArgocdRepoNode) {
+      this._onDidChangeTreeData.fire(node);
+    }
 
-        // mock data
-        const repos: V1alpha1Repository[] = [
-         {
-            repo: "https://github.com/northlander/rocket-config",
-            username: "pat",
-            connectionState: {
-              status: "Successful",
-              message: "",
-              attemptedAt: {seconds: "2020-07-24T20:37:46Z"}
-            },
-            type: "git"
-          },
-          {
-            repo: "https://containous.github.io/traefik-helm-chart",
-            connectionState: {
-              status: "Successful",
-              message: "",
-              attemptedAt: {seconds: "2020-07-24T20:37:46Z"}
-            },
-            type: "helm",
-            name: "traefik"
-          },
-          {
-            repo: "https://kubernetes.github.io/ingress-nginx/",
-            connectionState: {
-              status: "Successful",
-              message: "",
-              attemptedAt: {seconds: "2020-07-24T20:37:46Z"}
-            },
-            type: "helm",
-            name: "ingress-nginx"
-          }
-        ];
+    private async getArgocdRepos(): Promise<ArgocdRepoNode[]> {
+        const repos = await Argocd.listRepos();
         return Promise.resolve(repos.map(r => new ArgocdRepoNodeImpl(r)));
     }
 }

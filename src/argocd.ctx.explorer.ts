@@ -30,27 +30,6 @@ class ArgocdContextNodeImpl implements ArgocdContextNode {
         return Promise.resolve([]);
     }
 }
-/*
-class ArgocdContextErrorNode implements ArgocdContextNode {
-    constructor(private readonly text: string, private readonly detail: string) {
-
-    }
-
-    getTreeItem(): vscode.TreeItem {
-        const treeItem = new vscode.TreeItem(this.text);
-        treeItem.tooltip = 'Click for details';
-        treeItem.command = {
-            title: 'Show details',
-            command: 'extension.showInfoMessage',
-            arguments: [this.detail]
-        };
-        return treeItem;
-    }
-
-    async getChildren(): Promise<ArgocdContextNodeImpl[]> {
-        return [];
-    }
-}*/
 
 export class ArgocdContextExplorer implements vscode.TreeDataProvider<ArgocdContextNode> {
 

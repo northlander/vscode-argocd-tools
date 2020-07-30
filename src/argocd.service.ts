@@ -1,6 +1,7 @@
 import { ArgocdContext } from "./argocd.context";
 import * as shell from 'shelljs';
 import * as vscode from 'vscode';
+import { V1alpha1Repository } from "./api/gen/model/v1alpha1Repository";
 
 export interface IArgocd{
     /**
@@ -13,6 +14,8 @@ export interface IArgocd{
      * @param ctx The context to change to.
      */
     setCurrentContext(ctx: ArgocdContext): Promise<void>;
+
+    listRepos():Promise<V1alpha1Repository[]>;
 }
 
 interface TableRow
@@ -26,10 +29,12 @@ interface ShellResult {
     readonly stderr: string;
 }
 
+const DEBUGLOG = true;
+
 export const Argocd : IArgocd = {
 
     async listContexts(): Promise<ArgocdContext[]> {
-        console.log("ARGOCD: Listing Contexts");
+        if (DEBUGLOG) { console.log("ARGOCD: Listing Contexts"); }
         const ctxResp = await execAsync("argocd context");
 
         if (ctxResp?.stdout) {
@@ -43,11 +48,23 @@ export const Argocd : IArgocd = {
                 });
             return Promise.resolve(contexts);
         }
+        // TODO error message?
         return Promise.resolve([]);
     },
 
     async setCurrentContext(ctx: ArgocdContext): Promise<void> {
         const ctxResp = await execAsync(`argocd context ${ctx.name}`);
+        // TODO fix error handling
+    },
+
+    async listRepos(): Promise<V1alpha1Repository[]> {
+        if (DEBUGLOG) { console.log("ARGOCD: Listing Repos"); }
+        const shellResult = await execAsync(`argocd repo list -o json`);
+        if (shellResult?.stdout) {
+            const repos:V1alpha1Repository[] = JSON.parse(shellResult.stdout);
+            return Promise.resolve(repos);
+        }
+        return Promise.resolve([]);
     }
 };
 

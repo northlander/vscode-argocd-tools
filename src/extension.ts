@@ -14,10 +14,11 @@ export function activate(context: vscode.ExtensionContext) {
 	const argocdRepoExplorer = new ArgocdRepoExplorer();
 
 	const subscriptions = [
-		vscode.commands.registerCommand("extension.vsArgocdTools.deleteContextEntry", deleteContext),
-		vscode.commands.registerCommand("extension.vsArgocdTools.setCurrentContext", setCurrentContext),
+		vscode.commands.registerCommand("extension.vsArgocdTools.deleteContextEntry", (node?: ArgocdContextNode) => deleteContext(argocdContextExplorer, node)),
+		vscode.commands.registerCommand("extension.vsArgocdTools.setCurrentContext", (node?: ArgocdContextNode) => setCurrentContext(argocdContextExplorer, node)),
 		vscode.commands.registerCommand("extension.vsArgocdTools.addRepo", addRepo),
-		vscode.commands.registerCommand("extension.vsArgocdTools.refreshContexts", () => argocdContextExplorer.refresh())
+		vscode.commands.registerCommand("extension.vsArgocdTools.refreshContexts", () => argocdContextExplorer.refresh()),
+		vscode.commands.registerCommand("extension.vsArgocdTools.refreshRepos", () => argocdRepoExplorer.refresh())
 	];
 	
 	subscriptions.forEach((element) => {
@@ -41,18 +42,21 @@ export const deleteMessageItems: vscode.MessageItem[] = [
     }
 ];
 
-async function deleteContext(explorerNode?: ArgocdContextNode){
+async function deleteContext(explorer: ArgocdContextExplorer, explorerNode?: ArgocdContextNode){
 	if (explorerNode){
 		const answer = await vscode.window.showWarningMessage(`Do you want to delete the context '${explorerNode.getTreeItem().label}'?`, ...deleteMessageItems);
         if (!answer || answer.isCloseAffordance) {
             return;
-        }
+		}
+		// await Argocd.deleteContext(explorerNode);
+		explorer.refresh();
 	}
 }
 
-async function setCurrentContext(explorerNode?: ArgocdContextNode){
+async function setCurrentContext(explorer: ArgocdContextExplorer, explorerNode?: ArgocdContextNode){
 	if (explorerNode){
 		await Argocd.setCurrentContext(explorerNode.context);
+		explorer.refresh();
 		await vscode.window.showInformationMessage(`Argocd context set to ${explorerNode.getTreeItem().label}`);
 	}
 }
