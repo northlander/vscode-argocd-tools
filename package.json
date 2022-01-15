@@ -172,7 +172,7 @@
 		"@types/shelljs": "^0.8.8",
 		"async-file": "^2.0.2",
 		"portable-fetch": "^3.0.0",
-		"shelljs": "^0.8.4",
+		"shelljs": "^0.8.5",
 		"url": "^0.11.0"
 	}
 }
